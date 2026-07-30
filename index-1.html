@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+*{margin:0;box-sizing:border-box}body{font-family:"Press Start 2P",monospace;background:linear-gradient(#070b22,#1c2154);overflow:hidden;height:100vh;display:flex;justify-content:center;align-items:center}
+.stars{position:fixed;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:84px 84px;animation:t 3s infinite alternate}@keyframes t{from{opacity:.5}to{opacity:1}}
+.moon{position:fixed;top:40px;left:-80px;width:80px;height:80px;border-radius:50%;background:#f8efc8;box-shadow:0 0 25px #fff;animation:m 20s linear infinite}@keyframes m{to{transform:translateX(calc(100vw + 180px))}}
+.env{position:relative;width:min(92vw,520px);height:340px}.back{position:absolute;inset:0;background:#f6ecd2;border:5px solid #8b6b3f;border-radius:10px}
+.flap{position:absolute;inset:0;transform-origin:top;transition:1s;z-index:3}.flap:before{content:"";position:absolute;inset:0;background:#e2cfa3;clip-path:polygon(0 0,100% 0,50% 58%)}
+.seal{position:absolute;left:50%;top:120px;transform:translateX(-50%);width:76px;height:76px;border-radius:50%;background:#7a1f2b;border:4px solid #d7b36a;color:#fff3d2;font-size:16px;display:flex;align-items:center;justify-content:center;z-index:4}
+.letter{position:absolute;left:12px;right:12px;bottom:0;background:#fffaf0;border:4px solid #b79b63;border-radius:8px;padding:10px;transform:translateY(100%);transition:1s;z-index:2}
+.letter img{width:100%;display:block;border-radius:4px}
+.open .flap{transform:rotateX(-180deg)}.open .letter{transform:translateY(-78%)}.open .seal{opacity:0}
+.hint{position:fixed;bottom:20px;color:#f6e7c0;font-size:10px}
+</style></head><body>
+<div class=stars></div><div class=moon></div>
+<div class=env id=e><div class=back></div><div class=letter><img src="knight_princess.png"></div><div class=flap></div><div class=seal>J &amp; S</div></div>
+<div class=hint>CLICK THE WAX SEAL</div>
+<script>document.getElementById("e").onclick=()=>document.getElementById("e").classList.add("open")</script>
+</body></html>
