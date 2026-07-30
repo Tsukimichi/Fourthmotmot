@@ -50,28 +50,21 @@ img{width:100%;display:block}.poem{padding:14px;background:#1118;color:#fff;font
 <div class="env" id="env"><div class="back"></div><div class="letter"><div class="header"><h1>4THMOTMOT</h1><p>For Shayne — my light, my joy, and my greatest gift.</p></div><img src="knight_princess.png"><div class="poem">I love you with all my heart, happy 4th monthsary</div></div><div class="flap"></div><<img class="seal" src="wax_seal.png" alt="J &amp; S Wax Seal">; 
 <script>S</div></div>
 <script>
-const e = document.getElementById("env");
+const env = document.getElementById("env");
+const seal = document.querySelector(".seal");
 const letter = document.querySelector(".letter");
 
 letter.style.opacity = "0";
 
-e.onclick = () => {
+seal.onclick = () => {
 
-    if (e.classList.contains("opened")) return;
-    e.classList.add("opened");
+    if (env.classList.contains("opened")) return;
 
-    // Open the envelope
-    e.classList.add("open");
+    env.classList.add("opened");
+    env.classList.add("open");
 
-    // Wait for the opening animation
     setTimeout(() => {
-
-        // Hide the envelope
-        e.classList.add("hide");
-
-        // Show the letter
+        env.classList.add("hide");
         letter.style.opacity = "1";
-
     }, 1200);
-
 };
