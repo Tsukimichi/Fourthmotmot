@@ -17,13 +17,61 @@
     z-index:4;
     cursor:pointer;
 }
-.letter{position:absolute;left:12px;right:12px;bottom:-430px;background:#fffaf0;border:4px solid #b79b63;border-radius:8px;transition:bottom 1s;overflow:auto;max-height:80vh}
+.letter{
+    position:absolute;
+    left:12px;
+    right:12px;
+    bottom:-250px;
+    height:300px;
+    background:#fffaf0;
+    border:4px solid #b79b63;
+    border-radius:8px;
+    transition:bottom 1.2s ease, opacity .8s ease;
+    z-index:2;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+
+    opacity:0;              /* Hidden initially */
+} .hide .back,
+.hide .flap,
+.hide .seal{
+    opacity:0;
+    pointer-events:none;
+      } .back,
+.flap,
+.seal{
+    transition: opacity .8s ease, transform 1.2s ease;
+}
 .header{padding:12px;text-align:center;color:#5b3b20;border-bottom:3px solid #d7c39a}.header h1{font-size:12px}.header p{font-size:8px}
 img{width:100%;display:block}.poem{padding:14px;background:#1118;color:#fff;font-size:7px;line-height:1.8}
-.open .flap{transform:rotateX(-180deg)}.open .letter{bottom:0}.hide .back,.hide .flap,.hide .seal{opacity:0;pointer-events:none}
+.open .flap{transform:rotateX(-180deg)}.open .letter{bottom:18px; opacity:1;}.hide .back,.hide .flap,.hide .seal{opacity:0;pointer-events:none}
 </style></head><body><div class="stars"></div><div class="moon"></div>
 <div class="env" id="env"><div class="back"></div><div class="letter"><div class="header"><h1>4THMOTMOT</h1><p>For Shayne — my light, my joy, and my greatest gift.</p></div><img src="knight_princess.png"><div class="poem">I love you with all my heart, happy 4th monthsary</div></div><div class="flap"></div><<img class="seal" src="wax_seal.png" alt="J &amp; S Wax Seal">; 
 <script>S</div></div>
-const e=document.getElementById('env');
-e.onclick=()=>{e.classList.add('open');setTimeout(()=>e.classList.add('hide'),900);}
-</script></body></html>
+<script>
+const e = document.getElementById("env");
+const letter = document.querySelector(".letter");
+
+letter.style.opacity = "0";
+
+e.onclick = () => {
+
+    if (e.classList.contains("opened")) return;
+    e.classList.add("opened");
+
+    // Open the envelope
+    e.classList.add("open");
+
+    // Wait for the opening animation
+    setTimeout(() => {
+
+        // Hide the envelope
+        e.classList.add("hide");
+
+        // Show the letter
+        letter.style.opacity = "1";
+
+    }, 1200);
+
+};
