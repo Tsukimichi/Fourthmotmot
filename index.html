@@ -103,18 +103,7 @@ body{
   transition:opacity .3s ease;
 }
 .letter{
-  position:absolute;
-  left:12px; right:12px; bottom:12px;
-  height:290px;
-  background:#fffaf0;
-  border:4px solid #b79b63;
-  border-radius:8px;
-  transform:translateY(165px);
-  transition:transform 1.2s ease;
-  z-index:2;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
+.letter{ position:absolute; left:12px; right:12px; bottom:-210px;        /* hides the entire letter inside the envelope */ height:290px; background:#fffaf0; border:4px solid #b79b63; border-radius:8px; transition:bottom 1.2s ease; z-index:2; overflow:hidden; display:flex; flex-direction:column; }
 }
 .header{
   padding:12px;
@@ -155,7 +144,7 @@ body{
   color:#ffe6f2;
 }
 .open .flap{transform:rotateX(-180deg)}
-.open .letter{transform:translateY(-110px)}
+.open .letter{ bottom:18px;          /* slides the letter upward when opened */ }
 .open .seal{opacity:0}
 .open .poem{opacity:1}
 .hint{
