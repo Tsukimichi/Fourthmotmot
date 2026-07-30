@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+*{margin:0;box-sizing:border-box}body{font-family:"Press Start 2P",monospace;background:linear-gradient(#06091b,#10183a,#1b1d4d);overflow:auto;min-height:100vh}
+.stars{position:fixed;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:120px 120px;animation:t 4s infinite alternate}@keyframes t{from{opacity:.5}to{opacity:1}}
+.moon{position:fixed;top:40px;left:-90px;width:80px;height:80px;border-radius:50%;background:#f8efc8;box-shadow:0 0 25px #fff0b0;animation:m 20s linear infinite}@keyframes m{to{transform:translateX(calc(100vw + 180px))}}
+.env{position:relative;width:min(92vw,520px);height:340px;margin:120px auto}
+.back{position:absolute;inset:0;background:#f5ead0;border:5px solid #8b6b3f;border-radius:10px;transition:opacity .8s}
+.flap{position:absolute;inset:0;transform-origin:top;transition:1s;z-index:3}.flap:before{content:"";position:absolute;inset:0;background:#e2cfa3;clip-path:polygon(0 0,100% 0,50% 58%)}
+.seal{
+    position:absolute;
+    left:50%;
+    top:118px;
+    transform:translateX(-50%);
+    width:74px;
+    height:74px;
+    z-index:4;
+    cursor:pointer;
+}
+.letter{
+    position:absolute;
+    left:12px;
+    right:12px;
+    bottom:-250px;
+    height:600px;
+    background:#fffaf0;
+    border:4px solid #b79b63;
+    border-radius:8px;
+    transition:bottom 1.2s ease, opacity .8s ease;
+    z-index:2;
+    overflow:auto;
+    display:flex;
+    flex-direction:column;
+
+    opacity:0;              /* Hidden initially */
+} .hide .back,
+.hide .flap,
+.hide .seal{
+    opacity:0;
+    pointer-events:none;
+      } .back,
+.flap,
+.seal{
+    transition: opacity .8s ease, transform 1.2s ease;
+}
+.header{padding:12px;text-align:center;color:#5b3b20;border-bottom:3px solid #d7c39a}.header h1{font-size:12px}.header p{font-size:8px}
+img{width:100%;display:block}.poem{padding:14px;background:#1118;color:#fff;font-size:7px;line-height:1.8}
+.open .flap{transform:rotateX(-180deg)}.open .letter{bottom:18px; opacity:1;}.hide .back,.hide .flap,.hide .seal{opacity:0;pointer-events:none}
+</style></head><body><div class="stars"></div><div class="moon"></div>
+<div class="env" id="env"><div class="back"></div><div class="letter"><div class="header"><h1>4THMOTMOT</h1><p>For Shayne — my light, my joy, and my greatest gift.</p></div><img src="knight_princess.png"><div class="poem">I love you with all my heart, happy 4th monthsary</div></div><div class="flap"></div>
+
+<img class="seal" src="wax_seal.png" alt="J &amp; S Wax Seal">
+
+</div>
+
+<script>
+const env = document.getElementById("env");
+const seal = document.querySelector(".seal");
+const letter = document.querySelector(".letter");
+
+letter.style.opacity = "0";
+
+seal.onclick = () => {
+
+    if (env.classList.contains("opened")) return;
+
+    env.classList.add("opened");
+    env.classList.add("open");
+
+    setTimeout(() => {
+        env.classList.add("hide");
+        letter.style.opacity = "1";
+    }, 1200);
+
+};
+</script>
+</body>
+</html>
